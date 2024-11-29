@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Micteu.RestSearch</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Micteu.RestSearch</Title>
+    <Version>0.0.1-beta01</Version>
+    <Authors>Micteu</Authors>
+    <PackageProjectUrl>https://github.com/Micteu/RestSearch</PackageProjectUrl>
+    <Description>For turning search bodies into filters, sorts, and pagination on an IQueryable.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Micteu/RestSearch</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>MUI;IQueryable;seach;searching;filter;filtering;page;pagination</PackageTags>
+    <PackageReleaseNotes>1.0.0: Initial release</PackageReleaseNotes>
+    <IncludeSymbols>False</IncludeSymbols>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="RestSearch.UnitTests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
