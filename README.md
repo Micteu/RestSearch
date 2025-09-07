@@ -1,4 +1,4 @@
-Micteu.RestSearch
+RestSearch
 
 Add filtering, sorting, and pagination in ASP.NET Core Web API with minimal overhead. The request body structure is based on objects in the MUI DataGrid, but this library is not limited to backends receiving information from apps using MUI.
 
@@ -8,7 +8,7 @@ OData is definitely more mature--I know parents younger than it. But one of the 
 ## Installation
 
 ```bash
-dotnet add package Micteu.RestSearch
+dotnet add package RestSearch
 ```
 
 ## Setup and Usage
