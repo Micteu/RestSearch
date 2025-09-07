@@ -4,9 +4,10 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>Micteu.RestSearch</PackageId>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Micteu.RestSearch</Title>
+    <PackageId>RestSearch</PackageId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>RestSearch</Title>
     <Version>0.0.1-beta01</Version>
     <Authors>Micteu</Authors>
     <PackageProjectUrl>https://github.com/Micteu/RestSearch</PackageProjectUrl>
@@ -15,8 +16,10 @@
     <RepositoryUrl>https://github.com/Micteu/RestSearch</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>MUI;IQueryable;seach;searching;filter;filtering;page;pagination</PackageTags>
-    <PackageReleaseNotes>1.0.0: Initial release</PackageReleaseNotes>
-    <IncludeSymbols>False</IncludeSymbols>
+    <PackageReleaseNotes>
+		1.0.0: Initial release
+	</PackageReleaseNotes>
+    <IncludeSymbols>true</IncludeSymbols>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
