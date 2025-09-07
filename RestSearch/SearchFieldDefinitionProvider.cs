@@ -15,7 +15,6 @@ internal static class SearchFieldDefinitionProvider
         var type = typeof(T);
         if (!typeFieldDefinitions.TryGetValue(type, out var fieldDefinitions))
         {
-            // TODO: Make this exception message a little more pleasant once the DI framework is set up.
             throw new Exception($"Field definitions were not initialized for type {type}.");
         }
 
@@ -54,8 +53,7 @@ internal static class SearchFieldDefinitionProvider
                 IsSortingAllowed = true
             };
 
-            // TODO: Add nullable.
-            if (property.PropertyType == typeof(int)) // TODO: Add other numeric times like float, unsigned types, etc.
+            if (property.PropertyType == typeof(int))
             {
                 AddNumericOperators<TModel, int>(fieldDefinition, property.Name);
                 fieldDefinition.DeserializeFilterItem = (CreateFilter<TModel, int>);
@@ -163,7 +161,6 @@ internal static class SearchFieldDefinitionProvider
                     return Expression.Empty();
                 };
                 fieldDefinition.DeserializeFilterItem = (CreateFilter<TModel, string>);
-                // TODO: Implement IsAnyOf
             }
 
             fieldDefinition.FilterOperatorsAllowed = [.. fieldDefinition.FilterOperators.Select(kvp => kvp.Key)];
@@ -171,8 +168,6 @@ internal static class SearchFieldDefinitionProvider
         }
         return fieldDefinitions;
     }
-
-    // TODO: Are async filter deserializers needed?
 
     private static FieldFilter<TModel> CreateFilter<TModel, TValue>(ref Utf8JsonReader reader, string fieldName, FilterOperator filterOperator, JsonSerializerOptions serializerOptions)
     {
@@ -200,7 +195,6 @@ internal static class SearchFieldDefinitionProvider
             ?? propertyInfo.Name;
     }
 
-    // TODO: Implement IsAnyOf
     private static void AddNumericOperators<TModel, TField>(SearchFieldDefinition<TModel> fieldDefinition, string propertyName)
     {
         fieldDefinition.FilterOperators[FilterOperator.NumericEquals] = (filter, param) =>

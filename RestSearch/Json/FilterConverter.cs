@@ -8,25 +8,6 @@ internal class FilterConverter<TModel>() : JsonConverter<Filter<TModel>>
 {
     public override Filter<TModel>? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions serializerOptions)
     {
-        /*
-         * TODO list:
-         * Provide a way to block filtering on certain fields.
-         * Provide a way to block sorting on certain fields.
-         * Add validation. Or in another package?
-         * Create results model that also includes total count of items filtered, not using pagination.
-         * Set up XML documentation.
-         * Set up OpenAPI documentation using attributes.
-         * Set up dependency injection?
-         * Set up date only?
-         * Allow overriding search behavior for different operations on different data types.
-         * Add IsAnyOf support.
-         * Separate entities from exposed models. Allow incoming searches on the model, but apply the results to the entities.
-         * Clean up namespaces, file names, and access modifiers.
-         * Add readme.
-         * Set up actions and NuGet
-         * Check how MUI handles empty. Does an empty string count, not just null?
-         */
-
         if (reader.TokenType == JsonTokenType.Null)
         {
             return null;
