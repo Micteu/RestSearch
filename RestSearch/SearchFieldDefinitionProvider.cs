@@ -163,7 +163,6 @@ internal static class SearchFieldDefinitionProvider
                 fieldDefinition.DeserializeFilterItem = (CreateFilter<TModel, string>);
             }
 
-            fieldDefinition.FilterOperatorsAllowed = [.. fieldDefinition.FilterOperators.Select(kvp => kvp.Key)];
             fieldDefinitions[fieldDefinition.FieldName] = fieldDefinition;
         }
         return fieldDefinitions;

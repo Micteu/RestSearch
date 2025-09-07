@@ -2,6 +2,9 @@
 
 namespace RestSearch.Sorting;
 
+/// <summary>
+/// Direction in which to sort results.
+/// </summary>
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum SortDirection
 {

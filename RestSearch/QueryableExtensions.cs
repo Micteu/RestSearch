@@ -4,8 +4,22 @@ using System.Linq.Expressions;
 
 namespace RestSearch;
 
+/// <summary>
+/// Extensions for IQueryable to apply filtering, sorting, and pagination.
+/// </summary>
 public static class QueryableExtensions
 {
+    /// <summary>
+    /// Applies all the other extension methods in one call.
+    /// </summary>
+    public static IQueryable<TModel> ApplySearch<TModel>(this IQueryable<TModel> queryable, SearchModel<TModel> searchRequest)
+    {
+        return queryable
+            .ApplyFilters(searchRequest.Filtering)
+            .ApplySorting(searchRequest.Sorting)
+            .ApplyPagination(searchRequest.Pagination);
+    }
+
     /// <summary>
     /// Applies the filter(s) to the collection.
     /// </summary>

@@ -3,33 +3,39 @@ using System.Text.Json;
 
 namespace RestSearch;
 
+/// <summary>
+/// Contains extension methods for adding RestSearch converters to JsonSerializerOptions.
+/// </summary>
 public static class ServiceCollectionExtensions
 {
-    public static void AddRestSearchConverters<T>(this JsonSerializerOptions serializerOptions)
+    /// <summary>
+    /// Sets up RestSearch for the specified type.
+    /// </summary>
+    /// <typeparam name="TModel">The model or entity that should allow searches.</typeparam>
+    /// <param name="serializerOptions">used for determining how to deserialize incoming JSON requests</param>
+    public static void AddRestSearchConverters<TModel>(this JsonSerializerOptions serializerOptions)
     {
-        serializerOptions.Converters.Add(new FilterConverter<T>());
-        serializerOptions.Converters.Add(new SortConverter<T>());
-        SearchFieldDefinitionProvider.AddType<T>(serializerOptions);
+        serializerOptions.Converters.Add(new FilterConverter<TModel>());
+        serializerOptions.Converters.Add(new SortConverter<TModel>());
+        SearchFieldDefinitionProvider.AddType<TModel>(serializerOptions);
     }
+
+    /// <summary>
+    /// For convenience when you have two models in the same API that need to support RestSearch.
+    /// </summary>
     public static void AddRestSearchConverters<T1, T2>(this JsonSerializerOptions serializerOptions)
     {
-        serializerOptions.Converters.Add(new FilterConverter<T1>());
-        serializerOptions.Converters.Add(new SortConverter<T1>());
-        SearchFieldDefinitionProvider.AddType<T1>(serializerOptions);
-        serializerOptions.Converters.Add(new FilterConverter<T2>());
-        serializerOptions.Converters.Add(new SortConverter<T2>());
-        SearchFieldDefinitionProvider.AddType<T2>(serializerOptions);
+        serializerOptions.AddRestSearchConverters<T1>();
+        serializerOptions.AddRestSearchConverters<T2>();
     }
+
+    /// <summary>
+    /// For convenience when you have three models in the same API that need to support RestSearch.
+    /// </summary>
     public static void AddRestSearchConverters<T1, T2, T3>(this JsonSerializerOptions serializerOptions)
     {
-        serializerOptions.Converters.Add(new FilterConverter<T1>());
-        serializerOptions.Converters.Add(new SortConverter<T1>());
-        SearchFieldDefinitionProvider.AddType<T1>(serializerOptions);
-        serializerOptions.Converters.Add(new FilterConverter<T2>());
-        serializerOptions.Converters.Add(new SortConverter<T2>());
-        SearchFieldDefinitionProvider.AddType<T2>(serializerOptions);
-        serializerOptions.Converters.Add(new FilterConverter<T3>());
-        serializerOptions.Converters.Add(new SortConverter<T3>());
-        SearchFieldDefinitionProvider.AddType<T3>(serializerOptions);
+        serializerOptions.AddRestSearchConverters<T1>();
+        serializerOptions.AddRestSearchConverters<T2>();
+        serializerOptions.AddRestSearchConverters<T3>();
     }
 }

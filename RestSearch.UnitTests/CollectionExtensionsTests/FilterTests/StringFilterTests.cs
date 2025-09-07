@@ -177,7 +177,7 @@ public class StringFilterTests
             new() { MyString = "appb" },
             new() { MyInteger = 5 },
             new() { MyString = "a", MyInteger = 5 },
-            new() { MyString = null, MyInteger = 5 }
+            new() { MyString = null!, MyInteger = 5 }
         }.AsQueryable();
         var filter = new FieldFilter<ExampleEntity>
         {
@@ -204,7 +204,7 @@ public class StringFilterTests
             new() { MyString = "appb" },
             new() { MyInteger = 5 },
             new() { MyString = "a", MyInteger = 5 },
-            new() { MyString = null, MyInteger = 5 }
+            new() { MyString = null!, MyInteger = 5 }
         }.AsQueryable();
         var filter = new FieldFilter<ExampleEntity>
         {
